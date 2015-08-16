@@ -133,6 +133,11 @@ Prefab:
       propertyPath: shape
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d04c6a3846992d34b9ef63cb7f5f04d6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136198}

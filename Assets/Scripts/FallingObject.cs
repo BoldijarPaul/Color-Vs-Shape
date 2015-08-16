@@ -7,13 +7,14 @@ public class FallingObject : MonoBehaviour {
 	public Camera cam;
 	/* the shapes */
 	public GameObject[] objects;
+	public float rotationLimit;
 
 	void Start()
 	{
 		/* initialize camera if null */
-		if (cam == null) 
+		if (cam == null)
 		{
-			cam=Camera.main;
+			cam = Camera.main;
 		}
 		StartCoroutine (Spawn ());
 	}
@@ -21,7 +22,6 @@ public class FallingObject : MonoBehaviour {
 	IEnumerator Spawn()
 	{
 		while (true) {
-			Debug.Log("Created");
 			/* set up the position of the new object*/
 			float screenWidth = Helper.GetScreenWidth (cam);
 			float x = Random.Range (-screenWidth, screenWidth);
@@ -30,10 +30,10 @@ public class FallingObject : MonoBehaviour {
 			/* set up the game object and rotation */
 			GameObject randomGameObject = objects [Random.Range (0, objects.Length - 1)];
 			Quaternion rotation = Quaternion.identity;
-
+			 
 			/* spawn the game object*/
-			Instantiate (randomGameObject, position, rotation);
-
+			GameObject newGameObject=(GameObject)Instantiate (randomGameObject, position, rotation);
+			newGameObject.GetComponent<Rigidbody2D>().angularVelocity=Random.Range(-rotationLimit,rotationLimit);
 			/* wait some time and return to the while loop */
 			yield return new WaitForSeconds(2);
 		}
