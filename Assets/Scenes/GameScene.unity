@@ -123,6 +123,7 @@ MonoBehaviour:
   - {fileID: 135226, guid: 44e8ca507f67510468ca624ee60bb98f, type: 2}
   - {fileID: 136198, guid: d87c9d95dcb12af4f8e31683b9e12b87, type: 2}
   - {fileID: 120522, guid: 71ddbb5a9d5c34242b6ba0d9a1868b8f, type: 2}
+  rotationLimit: 50
 --- !u!4 &435714674
 Transform:
   m_ObjectHideFlags: 0
