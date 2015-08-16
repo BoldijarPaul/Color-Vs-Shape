@@ -9,13 +9,16 @@ public class FallingObject : MonoBehaviour {
 	public GameObject[] objects;
 	public float rotationLimit;
 
+	public Sprite[,] sprites;
+
 	void Start()
 	{
 		/* initialize camera if null */
-		if (cam == null)
-		{
+		if (cam == null) {
 			cam = Camera.main;
 		}
+		/* load sprites*/
+		sprites = Helper.SpriteArrayToSprite2DArray(Resources.LoadAll<Sprite> ("shapes"));
 		StartCoroutine (Spawn ());
 	}
 
@@ -32,10 +35,20 @@ public class FallingObject : MonoBehaviour {
 			Quaternion rotation = Quaternion.identity;
 			 
 			/* spawn the game object*/
-			GameObject newGameObject=(GameObject)Instantiate (randomGameObject, position, rotation);
-			newGameObject.GetComponent<Rigidbody2D>().angularVelocity=Random.Range(-rotationLimit,rotationLimit);
+			GameObject newGameObject = (GameObject)Instantiate (randomGameObject, position, rotation);
+			/* set body rotation */
+			newGameObject.GetComponent<Rigidbody2D> ().angularVelocity = Random.Range (-rotationLimit, rotationLimit);
+			/* set properties */
+			ObjectProperties objectProperties = (ObjectProperties)newGameObject.GetComponent (typeof(ObjectProperties));
+			int colorIndex = Random.Range (0, (int)Mathf.Sqrt (sprites.Length) - 1);
+			int shapeIndex = (int)objectProperties.shape;
+			objectProperties.color=(Color)colorIndex;
+	
+			/* set the right sprite */
+			newGameObject.GetComponent<SpriteRenderer> ().sprite = sprites [colorIndex,shapeIndex];
+
 			/* wait some time and return to the while loop */
-			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds (2);
 		}
 
 	}

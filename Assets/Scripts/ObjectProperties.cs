@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObjectProperties : MonoBehaviour {
 
-	public Color color;
+	public Color color{ get; set;}
 	public Shape shape;
 	 
 }

@@ -1,8 +1,8 @@
 ﻿public enum Shape   {
 	Star4,
-	Star5,
-	Poly6,
 	Poly8,
+	Poly6,
+	Star5,
 	Triangle,
 	Circle,
 	Square
