@@ -45,7 +45,7 @@ public class FallingObject : MonoBehaviour {
 			objectProperties.color=(Color)colorIndex;
 	
 
-			Debug.Log(objectProperties.color +" "+objectProperties.shape);
+	
 			/* set the right sprite */
 			newGameObject.GetComponent<SpriteRenderer> ().sprite = sprites [colorIndex,shapeIndex];
 

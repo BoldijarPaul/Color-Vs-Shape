@@ -34,6 +34,7 @@ public class MainBallController : MonoBehaviour {
 		if(isPlayer)
 		{
 			GetComponent<Collider2D>().isTrigger=true;
+			GetComponent<Rigidbody2D>().isKinematic=true;
 		}
 	}
 	
