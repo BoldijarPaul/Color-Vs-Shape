@@ -34,13 +34,40 @@ public class MainBallController : MonoBehaviour {
 	/* before this object collides with the main one */
 	void updateGameState (GameObject gameObject)
 	{
-		score++;
+
+		ObjectProperties ownObjectProperties = (ObjectProperties)GetComponent (typeof(ObjectProperties));
+		ObjectProperties hitObjectProperties = (ObjectProperties)gameObject.GetComponent (typeof(ObjectProperties));
+
+		/* check what we need to get */
+
+		Debug.Log ("We want " + goalType+Random.value);
+		if (goalType == GoalType.Color) {
+			/* we need to get a item of same color */
+			Debug.Log (ownObjectProperties.color+" "+hitObjectProperties.color+Random.value);
+			OnHitShape (ownObjectProperties.color == hitObjectProperties.color);
+		} else {
+			Debug.Log (ownObjectProperties.shape+" "+hitObjectProperties.shape+Random.value);
+			OnHitShape (ownObjectProperties.shape == hitObjectProperties.shape);
+		}
+
+	}
+	void OnHitShape(bool good)
+	{
+		if (good) {
+			goalType = (GoalType)Random.Range (0, 2);
+			score++;
+		} else {
+			score--;
+		}
+
 		updateUI ();
 	}
 
 	/* this method will take the properties from the specified game object to this one */
 	private void swapProperties(GameObject gameObject)
 	{
+		this.GetComponent<ObjectProperties> ().color = gameObject.GetComponent<ObjectProperties> ().color;
+		this.GetComponent<ObjectProperties> ().shape = gameObject.GetComponent<ObjectProperties> ().shape;
 		this.GetComponent<SpriteRenderer> ().sprite = gameObject.GetComponent<SpriteRenderer> ().sprite;
 		this.GetComponent<PolygonCollider2D> ().points = gameObject.GetComponent<PolygonCollider2D> ().points;
 	}
@@ -68,4 +95,4 @@ public class MainBallController : MonoBehaviour {
 	void Update () {
 	
 	}
-}
+			}
