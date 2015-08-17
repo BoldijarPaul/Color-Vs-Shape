@@ -460,7 +460,7 @@ RectTransform:
   - {fileID: 78864189}
   - {fileID: 796935029}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -520,6 +520,21 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1355782058 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 151346, guid: 6ff3af1726b1f854987ab11492f96f5f, type: 2}
+  m_PrefabInternal: {fileID: 505539632}
+--- !u!114 &1355782059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355782058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff3c85411c1d7b409ffc8c9fe82074b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1660718796
 GameObject:
   m_ObjectHideFlags: 0
