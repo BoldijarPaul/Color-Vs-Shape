@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435714672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.360000014, y: 3.61999989, z: 0}
+  m_LocalPosition: {x: -.360000014, y: 6.01000023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -361,7 +361,6 @@ GameObject:
   - 222: {fileID: 686589830}
   - 114: {fileID: 686589829}
   - 114: {fileID: 686589828}
-  - 114: {fileID: 686589827}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -387,17 +386,6 @@ RectTransform:
   m_AnchoredPosition: {x: 11, y: -455}
   m_SizeDelta: {x: 321, y: 46}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &686589827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 686589825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e84f7bfc1f1d85419ca7f2724400069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &686589828
 MonoBehaviour:
   m_ObjectHideFlags: 0
