@@ -50,6 +50,12 @@ public class FallingObject : MonoBehaviour {
 			newGameObject.GetComponent<SpriteRenderer> ().sprite = sprites [colorIndex,shapeIndex];
 
 			/* wait some time and return to the while loop */
+
+			if(GameSettings.state==GameState.GameOver)
+			{
+				/* we no longer want to spawn , game is over */
+				StopCoroutine(Spawn ());
+			}
 			yield return new WaitForSeconds (2);
 		}
 
