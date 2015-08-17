@@ -53,7 +53,7 @@ public class FallingObject : MonoBehaviour {
 
 			if(GameSettings.state==GameState.GameOver)
 			{
-				/* we no longer want to spawn , game is over */
+				/* we no longer want  to spawn , game is over */
 				StopCoroutine(Spawn ());
 			}
 			yield return new WaitForSeconds (2);
