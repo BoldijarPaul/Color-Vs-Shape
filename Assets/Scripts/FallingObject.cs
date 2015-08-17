@@ -50,7 +50,7 @@ public class FallingObject : MonoBehaviour {
 			newGameObject.GetComponent<SpriteRenderer> ().sprite = sprites [colorIndex,shapeIndex];
 
 			/* wait some time and return to the while loop */
-			yield return new WaitForSeconds (4);
+			yield return new WaitForSeconds (2);
 		}
 
 	}
