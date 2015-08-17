@@ -11,10 +11,9 @@ public class QuitButtonController : MonoBehaviour {
 
 	void OnButtonClick ()
 	{
-		if (GameSettings.state == GameState.GameOver) {
-			/* if we are not playing anymore and clicked this button, restart game */
+	 
 			Application.Quit();
-		}
+		 
 	}
 	
 	// Update is called once per frame
