@@ -9,7 +9,7 @@ public class MainBallController : MonoBehaviour {
 	private Text scoreObject;
 
 	private GoalType goalType;
-	private int score=0;
+	 
 	void Start () {
 
 
@@ -39,14 +39,12 @@ public class MainBallController : MonoBehaviour {
 		ObjectProperties hitObjectProperties = (ObjectProperties)gameObject.GetComponent (typeof(ObjectProperties));
 
 		/* check what we need to get */
-
-		Debug.Log ("We want " + goalType+Random.value);
+ 
 		if (goalType == GoalType.Color) {
 			/* we need to get a item of same color */
-			Debug.Log (ownObjectProperties.color+" "+hitObjectProperties.color+Random.value);
 			OnHitShape (ownObjectProperties.color == hitObjectProperties.color);
 		} else {
-			Debug.Log (ownObjectProperties.shape+" "+hitObjectProperties.shape+Random.value);
+		
 			OnHitShape (ownObjectProperties.shape == hitObjectProperties.shape);
 		}
 
@@ -55,9 +53,9 @@ public class MainBallController : MonoBehaviour {
 	{
 		if (good) {
 			goalType = (GoalType)Random.Range (0, 2);
-			score++;
+			GameSettings.score++;
 		} else {
-			score--;
+			GameSettings.state=GameState.GameOver;
 		}
 
 		updateUI ();
@@ -74,20 +72,19 @@ public class MainBallController : MonoBehaviour {
 	private void updateUI()
 	{
 		textObject.text = goalType.ToString ();
-		scoreObject.text = score + " P";
+		scoreObject.text = GameSettings.score + " P";
 	}
 	private void checkIfPlayer()
 	{
 		/*if this object is the main player, activate the trigger */
-		if(isPlayer)
-		{
-			GetComponent<Collider2D>().isTrigger=true;
-			GetComponent<Rigidbody2D>().isKinematic=true;
+		if (isPlayer) {
+			GetComponent<Collider2D> ().isTrigger = true;
+			GetComponent<Rigidbody2D> ().isKinematic = true;
 			textObject = GameObject.Find ("Text").GetComponent<Text> ();
 			scoreObject = GameObject.Find ("Score").GetComponent<Text> ();
-			score=0;
-			goalType=(GoalType)Random.Range(0,1);
-			updateUI();
+
+			goalType = (GoalType)Random.Range (0, 1);
+			updateUI ();
 		}
 	}
 	
