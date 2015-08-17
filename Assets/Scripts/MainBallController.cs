@@ -19,12 +19,13 @@ public class MainBallController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (isPlayer) 
-		{
+		if (isPlayer) {
 			/* a collision between 2 bodies started, if the main one is a player, 
 			 * swap properties & delete the other one */
-			updateGameState(other.gameObject);
-			swapProperties(other.gameObject);
+			if (GameSettings.state == GameState.Playing) {
+				updateGameState (other.gameObject);
+			}
+			swapProperties (other.gameObject);
 			Destroy (other.gameObject);
 
 		}
