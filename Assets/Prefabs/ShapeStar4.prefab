@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5018568}
   - 60: {fileID: 6032128}
   - 114: {fileID: 11400718}
+  - 114: {fileID: 11479652}
   m_Layer: 0
   m_Name: ShapeStar4
   m_TagString: Untagged
@@ -88,6 +89,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shape: 0
+--- !u!114 &11479652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94880abd7bffe04088fbcdbee747565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!212 &21215236
 SpriteRenderer:
   m_ObjectHideFlags: 1
