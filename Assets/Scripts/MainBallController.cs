@@ -26,6 +26,7 @@ public class MainBallController : MonoBehaviour {
 	private void swapProperties(GameObject gameObject)
 	{
 		this.GetComponent<SpriteRenderer> ().sprite = gameObject.GetComponent<SpriteRenderer> ().sprite;
+		this.GetComponent<PolygonCollider2D> ().points = gameObject.GetComponent<PolygonCollider2D> ().points;
 	}
 	private void checkIfPlayer()
 	{

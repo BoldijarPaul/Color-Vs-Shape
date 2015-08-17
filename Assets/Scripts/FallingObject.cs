@@ -44,11 +44,13 @@ public class FallingObject : MonoBehaviour {
 			int shapeIndex = (int)objectProperties.shape;
 			objectProperties.color=(Color)colorIndex;
 	
+
+			Debug.Log(objectProperties.color +" "+objectProperties.shape);
 			/* set the right sprite */
 			newGameObject.GetComponent<SpriteRenderer> ().sprite = sprites [colorIndex,shapeIndex];
 
 			/* wait some time and return to the while loop */
-			yield return new WaitForSeconds (2);
+			yield return new WaitForSeconds (4);
 		}
 
 	}
