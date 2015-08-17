@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSettings {
 
@@ -9,6 +10,13 @@ public class GameSettings {
 	{
 		score = 0;
 		state = GameState.Playing;
+		GameObject.Find ("GameOverText").GetComponent<Text> ().text="";
+	}
+
+	public static void GameOver()
+	{
+		state = GameState.GameOver;
+		GameObject.Find ("GameOverText").GetComponent<Text> ().text="GAME OVER!";
 	}
 
 

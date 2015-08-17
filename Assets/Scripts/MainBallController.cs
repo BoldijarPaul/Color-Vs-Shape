@@ -55,7 +55,8 @@ public class MainBallController : MonoBehaviour {
 			goalType = (GoalType)Random.Range (0, 2);
 			GameSettings.score++;
 		} else {
-			GameSettings.state=GameState.GameOver;
+			GameSettings.GameOver();
+			 			
 		}
 
 		updateUI ();
