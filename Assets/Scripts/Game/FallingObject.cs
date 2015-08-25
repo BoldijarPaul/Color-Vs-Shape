@@ -56,7 +56,7 @@ public class FallingObject : MonoBehaviour {
 				/* we no longer want  to spawn , game is over */
 				StopCoroutine(Spawn ());
 			}
-			yield return new WaitForSeconds (2);
+			yield return new WaitForSeconds (1);
 		}
 
 	}

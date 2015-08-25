@@ -13,13 +13,30 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	bool flag = false;
+	Vector3 screenPoint;
+	Vector3 offset;
 
-	private float lastX=0;
-	private bool lastXFound=false;
-	void FixedUpdate () 
+	void Update()
 	{
-		Vector3 rawPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		Vector3 targetPosition = new Vector3 (Mathf.Clamp(rawPosition.x,-maxWidth,maxWidth), transform.position.y, 0);
-		GetComponent<Rigidbody2D> ().MovePosition (targetPosition);
+		if (Input.GetMouseButton(0))
+		{
+			if (!flag)
+			{
+				flag = true;
+				screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+				offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+			}
+			
+			Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+			Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+			curPosition=new Vector3(curPosition.x,transform.position.y,0);
+			transform.position = curPosition;
+		}
+		else
+		{
+			flag = false;
+		}
 	}
+
 }
